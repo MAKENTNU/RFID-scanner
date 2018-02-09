@@ -6,6 +6,8 @@
 constexpr uint8_t RST_PIN = 9;
 constexpr uint8_t SS_PIN = 4;
 
+int buzzer_pin = 15;
+
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 
 const char* ssid = "";
@@ -19,13 +21,14 @@ int last_scan;
 int rescan_time = 10000;
  
 void setup() {
+  //Serial.begin(9600);
   SPI.begin();          // Init SPI bus
   mfrc522.PCD_Init();   // Init MFRC522
-  //Serial.begin(9600);
+  
   
   // Connect to WiFi network
-  /*Serial.print("Connecting to ");
-  Serial.println(ssid);*/
+  //Serial.print("Connecting to ");
+  //Serial.println(ssid);
  
   WiFi.begin(ssid, password);
  
@@ -61,7 +64,8 @@ void loop() {
   
   last_scan = millis();
   last_card_id = card_id;
-  // TODO: beep();
+  
+  play(buzzer_pin, 1);
 
   HTTPClient http;
   http.begin(url);
@@ -69,4 +73,24 @@ void loop() {
   http.POST("card_id=" + card_id + "&secret=" + secret);
   http.writeToStream(&Serial);
   http.end();
+}
+
+void play(int pin, int t) {
+  if (t) {
+    tone(pin, 1200);
+    delay(100);
+    noTone(pin);
+    delay(100);
+    tone(pin, 1400);
+    delay(200);
+    noTone(pin);
+  } else {
+    tone(pin, 1200);
+    delay(100);
+    noTone(pin);
+    delay(100);
+    tone(pin, 800);
+    delay(200);
+    noTone(pin);
+  }
 }
