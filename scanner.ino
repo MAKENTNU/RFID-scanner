@@ -70,8 +70,9 @@ void loop() {
   HTTPClient http;
   http.begin(url);
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
-  http.POST("card_id=" + card_id + "&secret=" + secret);
-  http.writeToStream(&Serial);
+  int httpPOSTCode = http.POST("card_id=" + card_id + "&secret=" + secret);
+  Serial.println(httpPOSTCode);
+  //http.writeToStream(&Serial);
   http.end();
 }
 
