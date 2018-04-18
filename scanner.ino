@@ -94,3 +94,39 @@ void play(int pin, int t) {
     noTone(pin);
   }
 }
+void checkInTone(int pin){
+  tone(buzzer, 523.25);
+  delay(200);
+  noTone(buzzer);
+  tone(buzzer, 783.99);
+  delay(200);
+  noTone(buzzer);
+  tone(buzzer, 1046.50);
+  delay(400);
+  noTone(buzzer);
+}
+void checkOutTone(int pin) {
+  tone(buzzer, 523.25);
+  delay(200);
+  noTone(buzzer);
+  tone(buzzer, 392.00);
+  delay(200);
+  noTone(buzzer);
+  tone(buzzer, 261.63);
+  delay(400);
+  noTone(buzzer);
+}
+void accessDeniedTone(int pin){
+  tone(buzzer, 261.63);
+  delay(100);
+  noTone(buzzer);
+  delay(100);
+  tone(buzzer, 261.63);
+  delay(100);
+  noTone(buzzer);
+  delay(100);
+  tone(buzzer, 261.63);
+  delay(600);
+  noTone(buzzer);
+}
+
