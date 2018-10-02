@@ -10,8 +10,8 @@ int buzzer_pin = 15;
 
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 
-const char* ssid = "make";
-const char* password = "makeallthestuff";
+const char* ssid = "";
+const char* password = "";
 const char* secret = "";
 const char* url = "http://slack.makentnu.no/checkin/post/";
 
