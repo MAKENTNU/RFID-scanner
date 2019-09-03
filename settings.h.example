@@ -1,0 +1,18 @@
+#ifndef SETTINGS_H
+#define SETTINGS_H
+
+const char* ssid = "ssid";
+const char* password = "password";
+const char* secret = "secret";
+const char* url = "url";
+
+const int buzzer_pin = 15; // Wemos D1 Mini D8
+
+// Only RX used
+const int RX_pin = 2; // Wemos D1 Mini D4
+const int TX_pin = 0; // Wemos D1 Mini D3
+// const int RX_pin = 13; // NodeMCU
+// const int TC_pin = 15; // NodeMCU
+
+#endif // SETTINGS_H
+
