@@ -28,7 +28,7 @@ void readUART(byte* output) {
 }
 
 void setup() {
-  ESP.wdtDisable();
+  //ESP.wdtDisable();
   // initialize serial:
   Serial.begin(9600);
   while (!Serial) {};
@@ -44,7 +44,7 @@ void setup() {
   }
   Serial.println("Connected");
   Serial.println(WiFi.localIP());
-  Serial.println("Start");
+  Serial.println("Start");  
 }
 
 void loop() {
@@ -69,7 +69,7 @@ void loop() {
   else if (id < 1000000000){
     idString.concat("0");
   } 
-  idString.concat(String(id));  
+  idString.concat(String(id));
   Serial.println(idString);
   
   HTTPClient http;
