@@ -4,7 +4,7 @@
 const char* ssid = "ssid";
 const char* password = "password";
 const char* secret = "secret";
-const char* url = "url";
+const char* url = "https://example.com/";
 
 const int buzzer_pin = 15; // Wemos D1 Mini D8
 
