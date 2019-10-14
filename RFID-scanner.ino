@@ -35,21 +35,16 @@ void loop() {
   byte data[255];
   readUART(data);
 
-  Serial.print("EM ");
-  uint id = getEM(data + 3);
   
-  String idString = "";  
-  if (id < 100000000){
-    idString.concat("00");
-  }
-  else if (id < 1000000000){
-    idString.concat("0");
-  } 
-  idString.concat(String(id));
+  uint id = getEM(data + 3);
+  char idString[11];
+  sprintf(idString, "%010u", id); // Zero pad. All card numbers are 10 digits long
+  
+  Serial.print("EM ");
   Serial.println(idString);
 
-  String response = httpPostEM(client, host, "checkin/post/", idString);
-  //String response = httpPostEM(client, host, "checkin/post/", "0123456789"); //Debug
+  String response = httpPostEM(client, host, "checkin/post/", String(idString));
+
   Serial.println(response);
   playSound(response, buzzer_pin);
 }
