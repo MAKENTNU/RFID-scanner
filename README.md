@@ -21,3 +21,5 @@ The EM-number itself does not seem to have any check sums and are likely just in
 The full url to send requests to. Must start with "https://" and have a trailing slash.
 #### Secret
 The key used for authentication with the server. Must be url-encoded.
+#### Scanner ID
+A unique id that may be used by the server for arbitration between scanners.

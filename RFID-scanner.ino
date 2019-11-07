@@ -53,7 +53,7 @@ String httpPostEM(BearSSL::WiFiClientSecure client, const char* host, const char
   HTTPClient https;
   if (https.begin(client, String(host) + link)) {  // HTTPS
     https.addHeader("Content-Type", "application/x-www-form-urlencoded");
-    int httpCode = https.POST("card_id=" + EM + "&secret=" + secret);
+    int httpCode = https.POST("card_id=" + EM + "&secret=" + secret + "&scanner_id=" + scanner_id);
 
     if (httpCode == 200) { // Success
       return https.getString();
